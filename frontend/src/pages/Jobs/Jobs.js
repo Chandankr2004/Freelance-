@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
@@ -14,6 +14,21 @@ const Jobs = () => {
     status: 'posted'
   });
 
+  // Separate state for search input (for immediate UI update)
+  const [searchInput, setSearchInput] = useState('');
+
+  // Debounced search - only update filters.search after user stops typing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFilters(prev => ({
+        ...prev,
+        search: searchInput
+      }));
+    }, 500); // Wait 500ms after user stops typing
+
+    return () => clearTimeout(timer);
+  }, [searchInput]);
+
   const { data, isLoading } = useQuery(
     ['jobs', filters],
     () => api.get('/jobs', { params: filters }).then(res => res.data),
@@ -21,10 +36,18 @@ const Jobs = () => {
   );
 
   const handleFilterChange = (e) => {
-    setFilters({
-      ...filters,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    
+    // Handle search input separately with debouncing
+    if (name === 'search') {
+      setSearchInput(value);
+    } else {
+      // Other filters update immediately
+      setFilters({
+        ...filters,
+        [name]: value
+      });
+    }
   };
 
   if (isLoading) {
@@ -50,7 +73,7 @@ const Jobs = () => {
               <input
                 type="text"
                 name="search"
-                value={filters.search}
+                value={searchInput}
                 onChange={handleFilterChange}
                 placeholder="Search jobs..."
                 className="input"

@@ -36,9 +36,9 @@ code {
 /* Light Theme (Default) - Premium White with Green Accents */
 :root,
 [data-theme="light"] {
-  --primary-color: #10b981;
-  --primary-dark: #059669;
-  --primary-light: #34d399;
+  --primary-color: #12543e;
+  --primary-dark: #0a4230;
+  --primary-light: #0a5137;
   --secondary-color: #3b82f6;
   --danger-color: #ef4444;
   --warning-color: #f59e0b;
@@ -51,7 +51,7 @@ code {
   --bg-white: #ffffff;
   --bg-gray: #f9fafb;
   --bg-hover: #f0fdf4;
-  --green-gradient: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  --green-gradient: linear-gradient(135deg, #094e37 0%, #043b27 100%);
   --green-glow: 0 0 20px rgba(16, 185, 129, 0.3);
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
@@ -329,6 +329,102 @@ html {
   margin: 0 auto;
   padding: 0 1rem;
   animation: fadeIn 0.6s ease-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile Responsive Container */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  /* Improve touch targets on mobile */
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+
+  /* Better spacing on mobile */
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+    max-width: 100%;
+  }
+
+  .btn {
+    min-height: 48px;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .input {
+    font-size: 16px;
+    min-height: 48px;
+    padding: 0.875rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Safe area for notched devices */
+  @supports (padding: max(0px)) {
+    .container {
+      padding-left: max(0.75rem, env(safe-area-inset-left));
+      padding-right: max(0.75rem, env(safe-area-inset-right));
+    }
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Improve touch scrolling */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Better text rendering on mobile */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Loading spinner */

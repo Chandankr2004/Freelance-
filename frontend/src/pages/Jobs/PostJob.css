@@ -48,8 +48,147 @@
   gap: 1rem;
 }
 
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
 .form-group textarea {
   resize: vertical;
   min-height: 150px;
+  line-height: 1.6;
+}
+
+.error-text {
+  color: var(--danger-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.error {
+  border-color: var(--danger-color) !important;
+}
+
+.post-job-form button[type="submit"] {
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .post-job-page {
+    padding: 1rem 0;
+  }
+
+  .post-job-form {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: 44px; /* Touch-friendly */
+    padding: 0.875rem;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  .recruiter-prompt {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .recruiter-prompt h1 {
+    font-size: 1.5rem;
+  }
+
+  .recruiter-prompt p {
+    font-size: 1rem;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+  }
+
+  .auth-buttons .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-job-page {
+    padding: 0.75rem 0;
+  }
+
+  .post-job-form {
+    padding: 1.25rem;
+    margin: 0.75rem auto;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .recruiter-prompt {
+    padding: 1.5rem 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .recruiter-prompt h1 {
+    font-size: 1.25rem;
+  }
+
+  .recruiter-prompt p {
+    font-size: 0.9rem;
+  }
 }
 

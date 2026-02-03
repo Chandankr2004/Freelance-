@@ -51,13 +51,36 @@ const PostJob = () => {
         navigate(`/jobs/${response.data.data.id}`);
       },
       onError: (error) => {
-        toast.error(error.response?.data?.message || 'Failed to post job');
+        console.error('Job posting error:', error);
+        const errorMessage = error.response?.data?.message || 
+                           error.message || 
+                           'Failed to post job. Please check all required fields.';
+        toast.error(errorMessage);
+        
+        // Log full error for debugging
+        if (error.response?.data) {
+          console.error('Error details:', error.response.data);
+        }
       }
     }
   );
 
   const onSubmit = (data) => {
-    createJobMutation.mutate(data);
+    // Prepare the data for submission
+    const jobData = {
+      title: data.title,
+      categoryId: data.categoryId,
+      description: data.description,
+      budget: parseFloat(data.budget), // Convert to number
+      currency: data.currency || 'USD',
+      budgetType: data.budgetType,
+      // Remove subCategory as it's not part of the Job model
+      // You can add it to skills or description if needed
+      skills: data.subCategory ? [data.subCategory] : []
+    };
+
+    console.log('Submitting job data:', jobData); // Debug log
+    createJobMutation.mutate(jobData);
   };
 
   // Show login/signup message if user is not logged in or not a buyer

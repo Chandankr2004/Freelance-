@@ -199,11 +199,154 @@
 }
 
 @media (max-width: 768px) {
+  .job-detail-page {
+    padding: 1rem 0;
+  }
+
   .job-detail-layout {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .job-detail-main h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .job-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .job-meta span {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .job-description,
+  .job-skills {
+    margin-bottom: 1.5rem;
+  }
+
+  .job-description h3,
+  .job-skills h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .job-description p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .skills-list {
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .sidebar-card {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sidebar-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .bid-form {
+    margin-top: 0.75rem;
+  }
+
+  .bid-form input,
+  .bid-form textarea,
+  .bid-form select {
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: 44px; /* Touch-friendly */
+    padding: 0.75rem;
+  }
+
+  .bid-form textarea {
+    min-height: 120px;
+  }
+
+  .bids-list {
+    max-height: 300px;
+  }
+
+  .bid-item {
+    padding: 0.875rem;
+  }
+
+  .bid-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .bid-amount {
+    font-size: 1rem;
+  }
+
+  .bid-freelancer,
+  .bid-proposal {
+    font-size: 0.8rem;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    min-height: 44px;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-detail-page {
+    padding: 0.75rem 0;
+  }
+
+  .job-detail-layout {
+    gap: 1rem;
+  }
+
+  .job-detail-main h1 {
+    font-size: 1.5rem;
+  }
+
+  .job-meta span {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .job-description h3,
+  .job-skills h3 {
+    font-size: 1.1rem;
+  }
+
+  .job-description p {
+    font-size: 0.9rem;
+  }
+
+  .skill-tag {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .sidebar-card {
+    padding: 1rem;
+  }
+
+  .bid-item {
+    padding: 0.75rem;
   }
 }
