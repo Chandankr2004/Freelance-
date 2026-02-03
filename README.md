@@ -1,5 +1,11 @@
 # Freelancing Marketplace Web Application
 
+
+Link to open:https://chandankr2004.github.io/Freelance-/#/
+
+
+
+
 A full-featured freelancing marketplace platform that connects businesses with freelancers and agencies across multiple industries.
 
 ## 🛠️ Technology Stack
